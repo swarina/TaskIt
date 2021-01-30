@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet"> 
+    <title>TaskIt</title>
+</head>
+
+<style>
+    	.center-column {
+            width:600px;
+            margin: 20px auto;
+            padding:20px;
+            background-color: #99B898;
+            border-radius: 3px;
+            box-shadow: 6px 2px 30px 0px rgba(0,0,0,0.75);
+	    }
+
+        body {
+            background-color: #2A363B;
+        }
+
+        h1,h3 {
+            font-family: 'Poppins', sans-serif;
+            color: #99B898;
+        }
+
+        hr {
+            border-top: 1px solid #99B898;
+        }
+
+        .btn-info {
+		    background-color: #2A363B;
+            border: #2A363B;
+            margin: 2px 1px;
+	    }
+
+	    .btn-danger {
+		    background-color: #2A363B;
+            border: #2A363B;
+            margin: 2px 1px;
+	    }
+</style>
+
+<body>
+
+<div class="container">
+    <h1 class="text-center display-4">TaskIt</h1>
+    <hr>
+</div>
+
+{% block content %}
+{% endblock %}
+
+</body>
+
+</html>

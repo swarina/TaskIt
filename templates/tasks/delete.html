@@ -1,8 +1,33 @@
-<p>Are you sure you want to delete "{{item}}?"</p>
+{% extends 'base.html' %}
 
-<a href = {% url 'list' %}>Cancel</a>
+{% block content %}
 
-<form method="POST" action="">
-    {% csrf_token %}
-    <input type="submit" name="Confirm">
-</form>
+<style>
+    input[type=submit] {
+        background-color: #2A363B;
+        color: white;
+        border: #2A363B;
+        padding: 4px 8px;
+        font-size: 15px;
+    }
+</style>
+
+<br>
+
+<div class="center-column">
+
+    <h3 class="text-center" style="color: #2A363B;">Delete Task</h3> <br>
+    
+    <p>Are you sure you want to delete <b>"{{item}}?"</b></p>
+
+    <form method="POST" action="">
+
+        {% csrf_token %}
+
+        <input type="submit" name="Confirm" value="Submit">
+        <a class = "btn btn-sm btn-info" href = {% url 'list' %}>Cancel</a>
+
+    </form>
+</div>
+
+{% endblock %}

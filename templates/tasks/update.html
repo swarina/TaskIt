@@ -1,7 +1,26 @@
-<h3>Update Task</h3>
+{% extends 'base.html' %}
 
-<form method="POST" action="">
-    {% csrf_token %}
-    {{form}}
-    <input type="Submit" name="Update task">
-</form>
+{% block content %}
+
+<style>
+    input[type=submit] {
+        background-color: #2A363B;
+        color: white;
+        border: #2A363B;
+    }
+</style>
+
+<br>
+
+<div class="center-column">
+
+    <h3 class="text-center" style="color: #2A363B;">Update Task</h3> <br>
+
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{form}}
+        <input type="submit" name="Update task" value="Submit">
+    </form>
+</div>
+
+{% endblock %}

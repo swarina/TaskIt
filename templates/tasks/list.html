@@ -1,20 +1,68 @@
-<h3>ToDo</h3>
+{% extends 'base.html' %}
 
-<form method="POST" action="/">
-    {% csrf_token %}
-    {{form.title}}
-    <input type="submit" name="Create task">
-</form>
+{% block content %}
 
-{% for task in tasks %}
-    <div>
-        <a href="{% url 'update_task' task.id %}">Update</a>
-        <a href="{% url 'delete_task' task.id %}">Delete</a>
+<style>
 
-        {% if task.complete == True %}
-            <strike> {{task}} </strike>
-        {% else %}
-            <span> {{task}} </span>
-        {% endif %}
+	input{
+		width: 100%;
+		padding: 12px 20px;
+		margin: 8px 0;
+		box-sizing: border-box;
+	}
+
+	input::placeholder {
+	  color: #5c5c3d;
+	}
+
+	.submit{
+		background-color: #6BA3E8;
+	}
+
+	.item-row{
+		background-color: #E84A5F;
+		margin: 10px;
+		padding: 20px;
+		border-radius: 3px;
+		color: #fff;
+		font-size: 18px;
+		font-color: #000000
+		box-shadow: 0px -1px 10px -4px rgba(0,0,0,0.75);
+	}
+
+</style>
+
+<div class = "center-column">
+
+    <form method="POST" action="/">
+
+        {% csrf_token %}
+
+        {{form.title}}
+        <input class = "btn btn-info" type="submit" name="Create task" value="Submit">
+
+    </form>
+
+    <div class="todo-list">
+
+    {% for task in tasks %}
+
+        <div class="item-row">
+        
+            {% if task.complete == True %}
+                <strike> {{task}} </strike>
+            {% else %}
+                <span> {{task}} </span>
+            {% endif %}
+
+			<a class = "btn btn-sm btn-info float-right" href="{% url 'update_task' task.id %}">Update</a>
+            <a class = "btn btn-sm btn-danger float-right" href="{% url 'delete_task' task.id %}">Delete</a>
+        </div>
+
+    {% endfor %}
+
     </div>
-{% endfor %}
+
+</div>
+
+{% endblock %}
